@@ -5,6 +5,7 @@ var e={
 			dis.X=0;
 			dis.Y=0;
 		obj.onmousedown=function(){
+			var a=0
 		}
 	}
 }
