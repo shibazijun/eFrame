@@ -1,11 +1,16 @@
-var e={
-	drag:function(id){
-		var obj =document.getElementById(id);
-		var dis={}
-			dis.X=0;
-			dis.Y=0;
-		obj.onmousedown=function(){
-			var a=0
+function drag(id){
+	var obj = document.getElementById(id);
+	var dis={}	
+	obj.onmousedown=function(ev){
+		dis.X=ev.pageX-obj.offsetLeft;
+		dis.Y=ev.pageY-obj.offsetTop;
+		document.onmousemove=function(ev){
+			obj.style.left=ev.pageX - dis.X + "px"
+			obj.style.top =ev.pageY - dis.Y + "px"
+		};
+		document.onmouseup=function(){
+			document.onmousemove=null;
+			document.onmouseup=null;
 		}
 	}
-}
+} 
